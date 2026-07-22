@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mirco De Vito — software development, creative coding, projection mapping and computer vision.">
+    <title>Mirco De Vito — Portfolio</title>
+
+    <style>
+        :root {
+            color-scheme: light;
+            --text: #111;
+            --muted: #6b6b6b;
+            --link: #0052cc;
+            --link-hover: #003399;
+            --page-width: 500px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            min-height: 100%;
+            background: #fff;
+        }
+
+        body {
+            position: relative;
+            z-index: 0;
+            min-height: 100vh;
+            max-width: var(--page-width);
+            margin: 40px auto;
+            padding: 0 40px 40px;
+            overflow-x: hidden;
+            color: var(--text);
+            background: transparent;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        main,
+        footer {
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 22px;
+            font-weight: 300;
+            letter-spacing: -1px;
+        }
+
+        h2 {
+            margin: 30px 0 10px;
+            font-size: 14px;
+            font-weight: 300;
+            letter-spacing: -0.5px;
+        }
+
+        p {
+            margin-top: 5px;
+        }
+
+        a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 2px;
+        }
+
+        a:hover,
+        a:focus-visible {
+            color: var(--link-hover);
+        }
+
+        .project-link {
+            font-weight: 400;
+        }
+        .company-link {
+            color: inherit;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .company-link:hover,
+        .company-link:focus-visible {
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        a:focus-visible {
+            outline: 2px solid currentColor;
+            outline-offset: 3px;
+            border-radius: 2px;
+        }
+
+        .subtitle {
+            margin-top: 4px;
+            margin-bottom: 25px;
+            color: #666;
+            font-size: 13px;
+            font-weight: 300;
+            letter-spacing: -0.5px;
+        }
+
+        .job-info {
+            font-size: 11px;
+            font-weight: 300;
+        }
+
+        .disclaimer {
+            margin-top: -5px;
+            color: #777;
+            font-size: 11px;
+            font-style: italic;
+        }
+
+        .small-heading {
+            font-size: 12px;
+        }
+
+        .skills {
+            margin-top: 30px;
+        }
+
+        footer {
+            margin-top: 60px;
+        }
+
+        .postscript {
+            color: #777;
+            font-size: 11px;
+        }
+
+        .contact {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .shader-trigger {
+            position: relative;
+            z-index: 5;
+            isolation: isolate;
+        }
+
+        #oil-shader {
+            position: fixed;
+            inset: 0;
+            z-index: 1;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            opacity: 0;
+            contain: strict;
+            transform: translateZ(0);
+            will-change: opacity;
+            mix-blend-mode: normal;
+            transition: opacity 25ms linear;
+        }
+
+        #oil-shader.is-active {
+            opacity: 1;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                margin: 20px 0;
+                padding: 0 25px 30px;
+            }
+        }
+
+        @media (hover: none), (pointer: coarse) {
+            #oil-shader {
+                display: none;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            #oil-shader {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="oil-shader" aria-hidden="true"></canvas>
+
+    <main>
+        <header>
+            <h1>Mirco De Vito</h1>
+            <div class="subtitle">Software development and creative coding since 2015</div>
+
+            <p class="job-info">
+                Full-time position:
+                <strong>
+                    Research &amp; Development at
+                    <a
+                        href="https://www.gruppomondadori.it/"
+                        class="company-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >Gruppo Mondadori</a>
+                </strong><br>
+                Working with nonprofit organizations and helping fill their software needs.
+            </p>
+        </header>
+
+        <section aria-labelledby="side-projects">
+            <h2 id="side-projects">Side Projects</h2>
+
+            <p>
+                <a href="https://mapshroom.dev"
+                   class="shader-trigger project-link"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    mapshroom.dev
+                </a>:
+                A <strong>300k+ visitor projection-mapping tool</strong> for 3D sculpture.
+                A shader and local model help with automatic masking and AI-generated depth maps.
+                <br><br>
+
+                <a href="#" class="project-link" aria-label="Venerus website project">Venerus website</a>:
+                <strong>Online presence</strong> for the artist.
+                <br><br>
+
+                <a
+                    href="https://mircoaurelio.github.io/Tipenso/"
+                    class="project-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >30+ small artists and entrepreneurs</a>:
+                Helping them build an online presence with creative and disruptive marketing ideas.
+            </p>
+
+            <p class="disclaimer">
+                * I have only listed products with an active user base or an economic return.
+            </p>
+        </section>
+
+        <section aria-labelledby="experiments">
+            <h2 id="experiments" class="small-heading">For fun that you can try now</h2>
+
+            <p>
+                <a
+                    href="https://mircoaurelio.github.io/airband/"
+                    class="project-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Airband project"
+                >Airband</a>:
+                An application using <strong>computer vision</strong> to create a playable set of virtual guitars.
+                <br><br>
+
+                <a
+                    href="https://mircoaurelio.github.io/Lofiradio24/"
+                    class="project-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Lofi Radio 24 project"
+                >Lofi Radio 24</a>:
+                A 24/7 live radio available all over the world, with the same song playing
+                for every listener at the same time. It is ad-free and uses
+                <strong>copyright-free music</strong> for studying and podcasting.
+                <br><br>
+
+                <a
+                    href="https://www.instagram.com/mirco.aurelio/"
+                    class="project-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Mirco Aurelio sculpture project"
+                >Mirco Aurelio</a>:
+                A personal <strong>sculpture and projection-mapping</strong> project,
+                building large-scale statues for live events and festivals.
+            </p>
+        </section>
+
+        <section class="skills" aria-label="Skills">
+            <p>
+                Interactive &amp; Creative Media:
+                <strong>real-time shader graphics</strong>,
+                <strong>projection mapping</strong>,
+                digital-to-physical sculpture,
+                OpenGL and <strong>WebGL</strong>.<br>
+
+                Vision &amp; Machine Learning:
+                real-time image processing,
+                depth generation,
+                <strong>TensorFlow</strong>,
+                <strong>OpenCV</strong> and Python.<br>
+
+                Software Engineering:
+                <strong>C++</strong>,
+                C#,
+                <strong>TypeScript</strong>,
+                JavaScript and modern web frameworks including React and Angular.<br>
+
+                Infrastructure &amp; Tooling:
+                Cloudflare,
+                CI/CD automation and
+                <strong>MCP</strong> (Model Context Protocol) integration.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p class="postscript">
+            P.S. In 2019 I held the highest Modern Elo in Magic: The Gathering.<br>
+            Currently a hand balancer.
+        </p>
+
+        <p class="contact">
+            <a href="mailto:devitomirco@gmail.com">devitomirco@gmail.com</a>
+            &nbsp;|&nbsp;
+            <a
+                href="https://www.instagram.com/mirco.aurelio/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >Find me online</a>
+        </p>
+    </footer>
+
+    <script>
+        (() => {
+            "use strict";
+
+            const canvas = document.getElementById("oil-shader");
+            const trigger = document.querySelector(".shader-trigger");
+            const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+            const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+            if (!canvas || !trigger || !finePointer.matches || reducedMotion.matches) {
+                return;
+            }
+
+            const gl = canvas.getContext("webgl", {
+                alpha: true,
+                antialias: false,
+                premultipliedAlpha: false,
+                powerPreference: "high-performance"
+            });
+
+            if (!gl) {
+                return;
+            }
+
+            const vertexShaderSource = `
+                attribute vec2 a_position;
+
+                void main() {
+                    gl_Position = vec4(a_position, 0.0, 1.0);
+                }
+            `;
+
+            const fragmentShaderSource = `
+                precision highp float;
+
+                uniform vec2 u_resolution;
+                uniform vec2 u_origin;
+                uniform float u_time;
+                uniform float u_shaderRadius;
+                uniform float u_wipeRadius;
+                uniform float u_maxRadius;
+
+                #define PI 3.14159265359
+
+                vec2 hash22(vec2 p) {
+                    p = vec2(
+                        dot(p, vec2(127.1, 311.7)),
+                        dot(p, vec2(269.5, 183.3))
+                    );
+
+                    return -1.0 + 2.0 * fract(
+                        sin(p) * 43758.5453123
+                    );
+                }
+
+                float gradientNoise(vec2 p) {
+                    vec2 cell = floor(p);
+                    vec2 local = fract(p);
+
+                    vec2 fade = local * local * local *
+                        (local * (local * 6.0 - 15.0) + 10.0);
+
+                    float a = dot(hash22(cell), local);
+                    float b = dot(
+                        hash22(cell + vec2(1.0, 0.0)),
+                        local - vec2(1.0, 0.0)
+                    );
+                    float c = dot(
+                        hash22(cell + vec2(0.0, 1.0)),
+                        local - vec2(0.0, 1.0)
+                    );
+                    float d = dot(
+                        hash22(cell + vec2(1.0, 1.0)),
+                        local - vec2(1.0, 1.0)
+                    );
+
+                    return mix(
+                        mix(a, b, fade.x),
+                        mix(c, d, fade.x),
+                        fade.y
+                    ) * 0.5 + 0.5;
+                }
+
+                mat2 rotate2d(float angle) {
+                    float s = sin(angle);
+                    float c = cos(angle);
+                    return mat2(c, -s, s, c);
+                }
+
+                /*
+                 * Four octaves are enough after domain warping and are
+                 * considerably cheaper than the previous six-octave field.
+                 */
+                float fbm(vec2 p) {
+                    float value = 0.0;
+                    float amplitude = 0.533;
+                    mat2 rotation = rotate2d(0.81);
+
+                    for (int i = 0; i < 4; i++) {
+                        value += amplitude * gradientNoise(p);
+                        p = rotation * p * 2.08 + vec2(17.7, 8.3);
+                        amplitude *= 0.48;
+                    }
+
+                    return value;
+                }
+
+                vec3 oilPalette(float t) {
+                    float x = fract(t);
+
+                    vec3 red = vec3(1.00, 0.015, 0.035);
+                    vec3 magenta = vec3(1.00, 0.015, 0.62);
+                    vec3 blue = vec3(0.015, 0.12, 1.00);
+                    vec3 cyan = vec3(0.015, 0.92, 1.00);
+                    vec3 green = vec3(0.015, 1.00, 0.18);
+                    vec3 deepRed = vec3(0.72, 0.005, 0.025);
+
+                    vec3 color;
+
+                    if (x < 0.18) {
+                        color = mix(red, magenta, smoothstep(0.0, 0.18, x));
+                    } else if (x < 0.38) {
+                        color = mix(magenta, blue, smoothstep(0.18, 0.38, x));
+                    } else if (x < 0.58) {
+                        color = mix(blue, cyan, smoothstep(0.38, 0.58, x));
+                    } else if (x < 0.78) {
+                        color = mix(cyan, green, smoothstep(0.58, 0.78, x));
+                    } else if (x < 0.90) {
+                        color = mix(green, vec3(0.01, 0.16, 0.07), smoothstep(0.78, 0.90, x));
+                    } else {
+                        color = mix(deepRed, red, smoothstep(0.90, 1.0, x));
+                    }
+
+                    color = pow(max(color, vec3(0.0)), vec3(0.76));
+                    return clamp(color * 1.18, 0.0, 1.65);
+                }
+
+                void main() {
+                    vec2 uv = gl_FragCoord.xy / u_resolution;
+                    float aspect = u_resolution.x / u_resolution.y;
+
+                    vec2 p = uv - u_origin;
+                    p.x *= aspect;
+
+                    float dist = length(p);
+                    float normalizedDistance = clamp(
+                        dist / max(u_maxRadius, 0.001),
+                        0.0,
+                        1.0
+                    );
+
+                    float angle = atan(p.y, p.x);
+                    vec2 direction = vec2(cos(angle), sin(angle));
+
+                    /*
+                     * A compact three-stage warp creates large unique liquid
+                     * shapes without visibly repeating rings or square cells.
+                     */
+                    float fieldA = fbm(
+                        p * 2.15 +
+                        vec2(u_time * 0.075, -u_time * 0.045)
+                    );
+
+                    float fieldB = fbm(
+                        rotate2d(0.92) * p * 4.35 +
+                        vec2(fieldA * 5.1, -fieldA * 4.3) +
+                        vec2(-u_time * 0.070, u_time * 0.082)
+                    );
+
+                    vec2 liquidP =
+                        p +
+                        vec2(
+                            fieldA - fieldB,
+                            fieldA + fieldB - 1.0
+                        ) * 0.34;
+
+                    liquidP += vec2(
+                        sin((p.y + fieldA) * 13.0 + u_time * 0.85),
+                        cos((p.x - fieldB) * 11.0 - u_time * 0.72)
+                    ) * 0.035;
+
+                    float fieldC = fbm(
+                        rotate2d(-0.58) * liquidP * 8.7 +
+                        vec2(fieldB * 4.4, fieldA * 3.6)
+                    );
+
+                    /*
+                     * Sampling noise on the unit direction keeps the polar
+                     * frontier continuous at the -PI/PI join.
+                     */
+                    float angularA = fbm(
+                        direction * 1.65 +
+                        vec2(u_time * 0.038, -u_time * 0.031)
+                    );
+
+                    float angularB = fbm(
+                        direction * 4.9 +
+                        vec2(fieldA, fieldB) * 1.45 +
+                        vec2(6.7, 2.3)
+                    );
+
+                    float shaderGrowth = smoothstep(
+                        0.0,
+                        u_maxRadius * 0.20,
+                        u_shaderRadius
+                    );
+
+                    float irregularLobes =
+                        sin(angle * 3.0 + angularA * 10.0) * 0.155 +
+                        sin(angle * 7.0 - angularB * 12.0) * 0.082 +
+                        sin(angle * 13.0 + fieldC * 10.0) * 0.045 +
+                        sin(angle * 19.0 - fieldA * 13.0) * 0.022;
+
+                    float borderDistortion =
+                        shaderGrowth * (
+                            (angularA - 0.5) * 1.02 +
+                            (angularB - 0.5) * 0.54 +
+                            (fieldB - 0.5) * 0.32 +
+                            (fieldC - 0.5) * 0.18 +
+                            irregularLobes
+                        );
+
+                    float localShaderRadius = max(
+                        0.0,
+                        u_shaderRadius + borderDistortion
+                    );
+
+                    float shaderFeather =
+                        0.09 + 0.045 * fieldC;
+
+                    float shaderMask =
+                        1.0 - smoothstep(
+                            localShaderRadius - shaderFeather,
+                            localShaderRadius + shaderFeather * 0.28,
+                            dist
+                        );
+
+                    /*
+                     * Mercury-like reflections: a silver chrome base with
+                     * sharp dark/light folds and RGB iridescence. Yellow is
+                     * intentionally excluded from the spectral palette.
+                     */
+                    float colorPhase =
+                        normalizedDistance * 3.8 +
+                        fieldA * 1.45 +
+                        fieldB * 1.16 +
+                        fieldC * 0.82 -
+                        u_time * 0.34;
+
+                    float foldA =
+                        sin(
+                            liquidP.x * 36.0 +
+                            liquidP.y * 19.0 +
+                            fieldA * 22.0 -
+                            fieldB * 17.0 +
+                            u_time * 2.4
+                        );
+
+                    float foldB =
+                        sin(
+                            liquidP.x * 17.0 -
+                            liquidP.y * 42.0 +
+                            fieldC * 25.0 +
+                            u_time * 1.65
+                        );
+
+                    float chromeSignal =
+                        foldA * 0.58 +
+                        foldB * 0.30 +
+                        (fieldC * 2.0 - 1.0) * 0.42;
+
+                    float chromeLight =
+                        smoothstep(-0.24, 0.92, chromeSignal);
+
+                    float chromeDark =
+                        1.0 -
+                        smoothstep(-0.82, 0.12, chromeSignal);
+
+                    float razorHighlight =
+                        pow(
+                            1.0 - abs(sin(
+                                chromeSignal * 4.8 +
+                                fieldA * 8.0
+                            )),
+                            10.0
+                        );
+
+                    float liquidHighlight =
+                        pow(
+                            0.5 +
+                            0.5 * sin(
+                                fieldA * 31.0 -
+                                fieldB * 27.0 +
+                                fieldC * 19.0 +
+                                normalizedDistance * 22.0
+                            ),
+                            7.0
+                        );
+
+                    vec3 darkChrome = vec3(0.012, 0.018, 0.025);
+                    vec3 midChrome = vec3(0.24, 0.29, 0.34);
+                    vec3 brightChrome = vec3(1.20, 1.28, 1.36);
+
+                    vec3 mercury = mix(
+                        darkChrome,
+                        midChrome,
+                        chromeLight
+                    );
+
+                    mercury = mix(
+                        mercury,
+                        brightChrome,
+                        razorHighlight * 0.92 +
+                        liquidHighlight * 0.46
+                    );
+
+                    mercury *= 1.0 - chromeDark * 0.70;
+
+                    vec3 spectralA = oilPalette(colorPhase);
+                    vec3 spectralB = oilPalette(
+                        colorPhase +
+                        normalizedDistance * 1.75 +
+                        chromeSignal * 0.24
+                    );
+
+                    float iridescentAmount =
+                        0.20 +
+                        liquidHighlight * 0.48 +
+                        razorHighlight * 0.24;
+
+                    vec3 oilColor =
+                        mercury * 1.22 +
+                        mix(spectralA, spectralB, chromeLight) *
+                        iridescentAmount;
+
+                    float borderGlow =
+                        1.0 -
+                        smoothstep(
+                            0.0,
+                            shaderFeather * 2.35,
+                            abs(dist - localShaderRadius)
+                        );
+
+                    vec3 edgeColor = oilPalette(
+                        colorPhase +
+                        normalizedDistance * 2.45 +
+                        0.12
+                    );
+
+                    oilColor +=
+                        edgeColor *
+                        borderGlow *
+                        (
+                            0.82 +
+                            razorHighlight * 0.52
+                        );
+
+                    oilColor +=
+                        vec3(1.28, 1.36, 1.46) *
+                        razorHighlight *
+                        0.66;
+
+                    oilColor = clamp(oilColor, 0.0, 2.15);
+
+                    float oilAlpha =
+                        shaderMask *
+                        clamp(
+                            0.72 +
+                            chromeLight * 0.10 +
+                            razorHighlight * 0.12 +
+                            borderGlow * 0.10,
+                            0.0,
+                            0.99
+                        );
+
+                    /*
+                     * Reuse the same low-cost fields for the organic white
+                     * wipe instead of calculating another noise stack.
+                     */
+                    float wipeGrowth = smoothstep(
+                        0.0,
+                        u_maxRadius * 0.16,
+                        u_wipeRadius
+                    );
+
+                    float wipeDistortion =
+                        wipeGrowth * (
+                            (angularB - 0.5) * 0.86 +
+                            (angularA - 0.5) * 0.48 +
+                            (fieldC - 0.5) * 0.28 +
+                            sin(angle * 5.0 + fieldA * 10.0) * 0.075 +
+                            sin(angle * 13.0 - fieldB * 12.0) * 0.032
+                        );
+
+                    float localWipeRadius = max(
+                        0.0,
+                        u_wipeRadius + wipeDistortion
+                    );
+
+                    float wipeFeather =
+                        0.085 + fieldB * 0.042;
+
+                    float wipeMask =
+                        (
+                            1.0 - smoothstep(
+                                localWipeRadius - wipeFeather,
+                                localWipeRadius + wipeFeather * 0.22,
+                                dist
+                            )
+                        ) * step(0.001, u_wipeRadius);
+
+                    vec4 oil = vec4(oilColor, oilAlpha);
+                    vec4 whiteWipe = vec4(vec3(1.0), wipeMask);
+
+                    vec4 result = mix(oil, whiteWipe, wipeMask);
+                    result.a = max(oil.a, wipeMask);
+
+                    gl_FragColor = result;
+                }
+            `;
+
+            function compileShader(type, source) {
+                const shader = gl.createShader(type);
+                gl.shaderSource(shader, source);
+                gl.compileShader(shader);
+
+                if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+                    const message = gl.getShaderInfoLog(shader);
+                    gl.deleteShader(shader);
+                    throw new Error(message || "Shader compilation failed.");
+                }
+
+                return shader;
+            }
+
+            function createProgram(vertexSource, fragmentSource) {
+                const vertexShader = compileShader(gl.VERTEX_SHADER, vertexSource);
+                const fragmentShader = compileShader(gl.FRAGMENT_SHADER, fragmentSource);
+                const program = gl.createProgram();
+
+                gl.attachShader(program, vertexShader);
+                gl.attachShader(program, fragmentShader);
+                gl.linkProgram(program);
+
+                gl.deleteShader(vertexShader);
+                gl.deleteShader(fragmentShader);
+
+                if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+                    const message = gl.getProgramInfoLog(program);
+                    gl.deleteProgram(program);
+                    throw new Error(message || "Shader linking failed.");
+                }
+
+                return program;
+            }
+
+            let program;
+
+            try {
+                program = createProgram(vertexShaderSource, fragmentShaderSource);
+            } catch (error) {
+                console.error(error);
+                return;
+            }
+
+            gl.useProgram(program);
+
+            const positionLocation = gl.getAttribLocation(program, "a_position");
+            const resolutionLocation = gl.getUniformLocation(program, "u_resolution");
+            const originLocation = gl.getUniformLocation(program, "u_origin");
+            const timeLocation = gl.getUniformLocation(program, "u_time");
+            const shaderRadiusLocation = gl.getUniformLocation(program, "u_shaderRadius");
+            const wipeRadiusLocation = gl.getUniformLocation(program, "u_wipeRadius");
+            const maxRadiusLocation = gl.getUniformLocation(program, "u_maxRadius");
+
+            const buffer = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+            gl.bufferData(
+                gl.ARRAY_BUFFER,
+                new Float32Array([
+                    -1, -1,
+                     1, -1,
+                    -1,  1,
+                    -1,  1,
+                     1, -1,
+                     1,  1
+                ]),
+                gl.STATIC_DRAW
+            );
+
+            gl.enableVertexAttribArray(positionLocation);
+            gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
+
+            let frameId = null;
+            let animationStart = 0;
+            let isAnimating = false;
+            let origin = { x: 0.5, y: 0.5 };
+            let maximumRadius = 1.8;
+
+            const expandDuration = 380;
+            const holdDuration = 35;
+            const wipeDuration = 620;
+            const totalDuration = expandDuration + holdDuration + wipeDuration;
+
+            function resizeCanvas() {
+                const renderScale = 0.72;
+                const pixelRatio =
+                    Math.min(window.devicePixelRatio || 1, 1.5) *
+                    renderScale;
+
+                const width = Math.max(
+                    1,
+                    Math.round(window.innerWidth * pixelRatio)
+                );
+
+                const height = Math.max(
+                    1,
+                    Math.round(window.innerHeight * pixelRatio)
+                );
+
+                if (canvas.width !== width || canvas.height !== height) {
+                    canvas.width = width;
+                    canvas.height = height;
+                    gl.viewport(0, 0, width, height);
+                }
+            }
+
+            function easeOutQuint(value) {
+                return 1.0 - Math.pow(1.0 - value, 5.0);
+            }
+
+            function easeInOutCubic(value) {
+                return value < 0.5
+                    ? 4.0 * value * value * value
+                    : 1.0 - Math.pow(-2.0 * value + 2.0, 3.0) / 2.0;
+            }
+
+            function calculateMaximumRadius() {
+                const aspect = window.innerWidth / window.innerHeight;
+
+                const corners = [
+                    [0, 0],
+                    [1, 0],
+                    [0, 1],
+                    [1, 1]
+                ];
+
+                maximumRadius = Math.max(
+                    ...corners.map(([x, y]) => {
+                        const dx = (x - origin.x) * aspect;
+                        const dy = y - origin.y;
+                        return Math.hypot(dx, dy);
+                    })
+                ) * 1.22;
+            }
+
+            function render(timestamp) {
+                resizeCanvas();
+
+                const elapsed = timestamp - animationStart;
+
+                const shaderProgress = Math.max(
+                    0,
+                    Math.min(1, elapsed / expandDuration)
+                );
+
+                const wipeElapsed = elapsed - expandDuration - holdDuration;
+                const wipeProgress = Math.max(
+                    0,
+                    Math.min(1, wipeElapsed / wipeDuration)
+                );
+
+                const shaderRadius =
+                    maximumRadius * easeOutQuint(shaderProgress);
+
+                const wipeRadius =
+                    maximumRadius * 1.08 * easeInOutCubic(wipeProgress);
+
+                gl.clearColor(0, 0, 0, 0);
+                gl.clear(gl.COLOR_BUFFER_BIT);
+
+                gl.uniform2f(resolutionLocation, canvas.width, canvas.height);
+                gl.uniform2f(originLocation, origin.x, origin.y);
+                gl.uniform1f(timeLocation, elapsed / 1000);
+                gl.uniform1f(shaderRadiusLocation, shaderRadius);
+                gl.uniform1f(wipeRadiusLocation, wipeRadius);
+                gl.uniform1f(maxRadiusLocation, maximumRadius);
+
+                gl.drawArrays(gl.TRIANGLES, 0, 6);
+
+                if (elapsed < totalDuration) {
+                    frameId = requestAnimationFrame(render);
+                } else {
+                    canvas.classList.remove("is-active");
+                    gl.clear(gl.COLOR_BUFFER_BIT);
+                    frameId = null;
+                    isAnimating = false;
+                }
+            }
+
+            function startEffect(clientX, clientY) {
+                if (isAnimating) {
+                    return;
+                }
+
+                const rect = trigger.getBoundingClientRect();
+
+                const startX = Number.isFinite(clientX)
+                    ? Math.min(Math.max(clientX, rect.left), rect.right)
+                    : rect.left + rect.width / 2;
+
+                const startY = Number.isFinite(clientY)
+                    ? Math.min(Math.max(clientY, rect.top), rect.bottom)
+                    : rect.top + rect.height / 2;
+
+                origin.x = startX / window.innerWidth;
+                origin.y = 1.0 - startY / window.innerHeight;
+
+                calculateMaximumRadius();
+
+                if (frameId !== null) {
+                    cancelAnimationFrame(frameId);
+                }
+
+                isAnimating = true;
+                canvas.classList.add("is-active");
+                animationStart = performance.now();
+                frameId = requestAnimationFrame(render);
+            }
+
+            trigger.addEventListener("pointerenter", (event) => {
+                startEffect(event.clientX, event.clientY);
+            });
+
+            trigger.addEventListener("pointerdown", (event) => {
+                startEffect(event.clientX, event.clientY);
+            });
+
+            trigger.addEventListener("focus", () => {
+                startEffect();
+            });
+            window.addEventListener("resize", resizeCanvas, { passive: true });
+
+            resizeCanvas();
+        })();
+    </script>
+</body>
+</html>
